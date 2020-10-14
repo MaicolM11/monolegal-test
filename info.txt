@@ -1,0 +1,27 @@
+las colecciones que se tendrán y sus respectivos atributos serán
+
+client 	 (nit, name_client, email)
+bill     (code, total, subtotal, iva, retention, create_at, state, paid, payment_date, location)
+ 
+states (primerrecordatorio, segundorecordatorio, desactivado)
+
+se usó mongodb atlas,
+
+mongodb+srv://maicol:<password>@cluster0.c7ppq.mongodb.net/<dbname>?retryWrites=true&w=majority
+
+
+------
+primero se debe correr el proyecto backend, que es la webapi 
+ dotnet run
+
+luego correr el proyecto angular 
+	ng build
+	ng serve
+
+
+cuando se canbia el estado de una factura se envia el correo al respectivo cliente.
+
+si si desea probar el envio de correos se deben insertar clientes y facturas por medio de postman. 
+
+
+

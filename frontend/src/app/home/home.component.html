@@ -1,0 +1,74 @@
+<br>
+<br>
+<center><h2>Facturas</h2></center>
+<br>
+<table style="margin-left:auto;margin-right:auto;" mat-table [dataSource]="lst" class="mat-elevation-z8">
+
+  <!-- <ng-container matColumnDef="Id">
+    <th mat-header-cell *matHeaderCellDef> Id. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container> -->
+
+  <ng-container matColumnDef="Client">
+    <th mat-header-cell *matHeaderCellDef> Cliente </th>
+    <td mat-cell *matCellDef="let element"> {{element.nameClient}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Location">
+    <th mat-header-cell *matHeaderCellDef> Ciudad </th>
+    <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Nit">
+    <th mat-header-cell *matHeaderCellDef> Nit </th>
+    <td mat-cell *matCellDef="let element"> {{element.nit}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Total">
+    <th mat-header-cell *matHeaderCellDef> Total </th>
+    <td mat-cell *matCellDef="let element"> {{element.total |currency:'COP':'symbol-narrow'}}  </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Subtotal">
+    <th mat-header-cell *matHeaderCellDef> Subtotal </th>
+    <td mat-cell *matCellDef="let element"> {{element.subtotal |currency:'COP':'symbol-narrow'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Iva">
+    <th mat-header-cell *matHeaderCellDef> Iva </th>
+    <td mat-cell *matCellDef="let element"> {{element.iva |currency:'COP':'symbol-narrow'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Retention">
+    <th mat-header-cell *matHeaderCellDef> Retención </th>
+    <td mat-cell *matCellDef="let element"> {{element.retention |currency:'COP':'symbol-narrow'}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="CreatedAt">
+    <th mat-header-cell *matHeaderCellDef> Fecha creación </th>
+    <td mat-cell *matCellDef="let element"> {{element.createAt}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="State">
+    <th mat-header-cell *matHeaderCellDef> Estado </th>
+    <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="IsPaid">
+    <th mat-header-cell *matHeaderCellDef> Pagada </th>
+    <td mat-cell *matCellDef="let element"> {{element.isPaid}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="PaymentDate" >
+    <th mat-header-cell *matHeaderCellDef> Fecha pago </th>
+    <td mat-cell *matCellDef="let element" > <p *ngIf="element.isPaid"> {{element.paymentDate}} </p></td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Cambiar estado </th>
+    <td mat-cell *matCellDef="let element" > <button (click)="updateItem(element.id)">..</button> </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="headers"></tr>
+  <tr mat-row *matRowDef="let row; columns: headers;"></tr>
+</table>
